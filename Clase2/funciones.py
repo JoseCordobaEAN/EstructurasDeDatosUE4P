@@ -14,7 +14,4 @@ def sumatoria(num):
     :param num: int el numero hasta donde queremos calcular la sumatoria
     :return: int la suma de todos los digitos hasta el valor
     """
-    acum = 0
-    for i in range(num + 1):
-        acum += i
-    return acum
+    return num * (num + 1) // 2
