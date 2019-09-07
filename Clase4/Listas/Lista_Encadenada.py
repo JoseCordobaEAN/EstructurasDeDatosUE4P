@@ -36,7 +36,16 @@ class Lista_Encadenada(ListaAbstracta):
         super().editar(index, Elemento)
 
     def index_of(self, Elemento):
-        super().index_of(Elemento)
+        index_var = -1
+
+        nodo_index = self.Primero
+        for i in range (self.tamano):
+            if nodo_index.elemento == Elemento:
+                index_var = i
+                return index_var
+            else:
+                nodo_index = nodo_index.siguiente
+        return index_var
 
     def elemento_en(self, index):
         if index >= self.tamano:

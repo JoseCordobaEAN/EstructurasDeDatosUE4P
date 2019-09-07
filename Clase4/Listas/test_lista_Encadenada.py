@@ -25,7 +25,24 @@ class TestLista_Encadenada(TestCase):
         self.fail()
 
     def test_index_of(self):
-        self.fail()
+        elemento = "prueba"
+
+        lista = Lista_Encadenada(elemento) #Elemento queda agregado
+        index_of_esperado = 0
+
+        index_obtenido = lista.index_of(elemento)
+        self.assertEquals(index_obtenido, index_of_esperado)
+
+        for i in range (50):
+            lista.agregar(f'Elemento {i}')
+        index_of_esperado = 26
+
+        index_obtenido = lista.index_of(f'Elemento {25}')
+        self.assertEquals(index_obtenido, index_of_esperado)
+
+        index_of_esperado = -1
+        index_obtenido = lista.index_of('Miller')
+        self.assertEquals(index_obtenido, index_of_esperado)
 
     def test_elemento_en(self):
         self.fail()
