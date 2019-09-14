@@ -16,8 +16,14 @@ class Nodo:
 class Lista_Encadenada(ListaAbstracta):
 
     Primero = None
+    tamano = 0
 
     def agregar(self, Elemento):
+        """
+        O(n)
+        :param Elemento:
+        :return:
+        """
         nuevo = Nodo(Elemento, None)
         ultimo_nodo = self.Primero
         if self.tamano == 0:
@@ -30,10 +36,25 @@ class Lista_Encadenada(ListaAbstracta):
 
 
     def quitar(self, Elemento):
-        super().quitar(Elemento)
+        anterior = None
+        auxiliar = self.Primero
+        while auxiliar != None:
+            siguiente = auxiliar.siguiente
+            if auxiliar.elemento == Elemento:
+                anterior.siguiente = siguiente
+                self.tamano -=1
+                return auxiliar.elemento
+            anterior = auxiliar
+            auxiliar = siguiente
+
 
     def editar(self, index, Elemento):
-        super().editar(index, Elemento)
+        if index >= self.tamano:
+            raise IndexError(f'{index} esta fuera del rango de la lista')
+        aux = self.Primero
+        for i in range (index):
+            aux = aux.siguiente
+        aux.elemento = Elemento
 
     def index_of(self, Elemento):
         index_var = -1
@@ -55,14 +76,16 @@ class Lista_Encadenada(ListaAbstracta):
             nodo_buscado = nodo_buscado.siguiente
         return nodo_buscado.elemento
 
-    def __init__(self):
-        self.Primero = None
-        self.tamano = 0
 
-    def __init__(self, elemento) -> None:
-        super().__init__()
-        self.Primero = Nodo(elemento, None)
-        self.tamano += 1
+    def __init__(self, elemento = None):
+        if elemento != None:
+            self.Primero = Nodo(elemento, None)
+            self.tamano += 1
 
-    def __repr__(self) -> str:
-        return super().__repr__()
+    def __repr__(self):
+        lista_rep = []
+        aux = self.Primero
+        while aux != None:
+            lista_rep.append(aux.elemento)
+            aux = aux.siguiente
+        return lista_rep
