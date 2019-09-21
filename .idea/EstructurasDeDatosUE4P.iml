@@ -6,8 +6,9 @@
       <sourceFolder url="file://$MODULE_DIR$/Clase2" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Clase3" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Clase4" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Clase6" isTestSource="false" />
     </content>
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="Python 3.7" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="TestRunnerService">
