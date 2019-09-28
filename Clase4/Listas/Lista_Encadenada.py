@@ -17,6 +17,7 @@ class Lista_Encadenada(ListaAbstracta):
 
     Primero = None
     tamano = 0
+    Ultimo = None
 
     def agregar(self, Elemento):
         """
@@ -25,13 +26,11 @@ class Lista_Encadenada(ListaAbstracta):
         :return:
         """
         nuevo = Nodo(Elemento, None)
-        ultimo_nodo = self.Primero
         if self.tamano == 0:
             self.Primero = nuevo
         else:
-            while ultimo_nodo.siguiente != None:
-                ultimo_nodo = ultimo_nodo.siguiente
-            ultimo_nodo.siguiente = nuevo
+            self.Ultimo.siguiente = nuevo
+        self.Ultimo = nuevo
         self.tamano += 1
 
 
@@ -81,6 +80,7 @@ class Lista_Encadenada(ListaAbstracta):
         if elemento != None:
             self.Primero = Nodo(elemento, None)
             self.tamano += 1
+            self.Ultimo = Nodo(elemento, None)
 
     def __repr__(self):
         lista_rep = []
